@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ייפוי כוח מתמשך | מרקמן טומשין ושות'</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#efefef;font-family:Heebo,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#1a1a1a;text-decoration:none}
+a:hover{color:#6b6b6b}
+summary::-webkit-details-marker{display:none}
+summary::marker{content:""}
+#navBtn{display:none!important}
+@media (max-width:720px){
+#navBtn{display:inline-flex!important;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #dcdcdc;background:#fafafa;font-size:18px;line-height:1;color:#3a3a3a;cursor:pointer;flex:0 0 auto;order:2;margin-inline-start:auto}
+#navChk:checked+#navBtn{background:#2b2b2b;color:#fff;border-color:#2b2b2b}
+#navLinks{display:none!important;order:3}
+#navChk:checked~#navLinks{display:flex!important;flex-direction:column;align-items:stretch;width:100%;gap:0;border-top:1px solid #ececec;margin-top:4px}
+#navChk:checked~#navLinks>a{padding:14px 2px;border-bottom:1px solid #ececec;font-size:15px}
+#navChk:checked~#navLinks>a:last-child{margin-top:12px;text-align:center;border-bottom:none;padding:14px 0}
+#navChk:checked~#navLinks>span{padding:14px 2px}
+}
+summary::-webkit-details-marker{display:none}
+summary::marker{content:""}
+@media (max-width:720px){
+#navLinks details>div{position:static!important;border:none!important;box-shadow:none!important;min-width:0!important;margin-top:6px}
+#navLinks details>div>a{padding:12px 10px!important}
+#navChk:checked~#navLinks>details{padding:14px 2px;border-bottom:1px solid #ececec;font-size:15px}
+}
+</style>
+</head>
+<body>
+<div dir="rtl" style="background:#efefef;padding:clamp(10px,3vw,28px) clamp(8px,3vw,16px);min-height:100vh;box-sizing:border-box">
+<div style="max-width:980px;margin:0 auto;background:#fff;border:1px solid #d6d6d6">
+
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 20px;padding:14px clamp(14px,3vw,22px);border-bottom:1px solid #e0e0e0">
+    <input type="checkbox" id="navChk" style="display:none">
+    <label for="navChk" id="navBtn" aria-label="תפריט">☰</label>
+    <a href="index.html" style="display:flex;align-items:center;gap:10px"><img src="assets/logo.jpg" alt="מרקמן טומשין ושות'" style="height:34px;width:34px;object-fit:cover;border-radius:2px"><span style="font-size:13px;font-weight:500;letter-spacing:.02em">מרקמן טומשין ושות'</span></a>
+    <div id="navLinks" style="display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;font-size:13px;color:#3a3a3a">
+      <a href="index.html">ראשי</a>
+      <details style="position:relative">
+        <summary style="list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;font-weight:500">מוצרים<span style="color:#9a9a9a;font-size:10px">▾</span></summary>
+        <div style="position:absolute;top:calc(100% + 12px);inset-inline-start:0;z-index:30;background:#fff;border:1px solid #dcdcdc;min-width:210px;display:flex;flex-direction:column;box-shadow:0 8px 20px rgba(0,0,0,.08)">
+          <a href="will.html" style="padding:12px 14px;border-bottom:1px solid #ececec;font-size:13px">צוואה</a>
+          <a href="power-of-attorney.html" style="padding:12px 14px;border-bottom:1px solid #ececec;font-size:13px">ייפוי כוח מתמשך</a>
+          <a href="bundle.html" style="padding:12px 14px;font-size:13px;display:flex;align-items:center;justify-content:space-between;gap:10px">צוואה + ייפוי כוח<span style="background:#2b2b2b;color:#fff;font-size:10px;padding:2px 7px">מומלץ</span></a>
+        </div>
+      </details>
+      <a href="questionnaire.html">שאלון</a>
+      <a href="contact.html">צור קשר</a>
+      <a href="#login" style="background:#2b2b2b;color:#fff;padding:8px 20px;font-size:13px">כניסה</a>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(20px,3vw,36px);align-items:center;padding:clamp(28px,5vw,44px) clamp(18px,4vw,40px) clamp(30px,5vw,48px);border-bottom:1px solid #ececec">
+    <div>
+      <h1 style="margin:0 0 16px;font-size:clamp(24px,5vw,32px);line-height:1.3;font-weight:700;color:#161616;text-wrap:pretty">מי יקבל את ההחלטות עבורכם אם יגיע יום שבו לא תוכלו לקבל אותן בעצמכם?</h1>
+      <p style="margin:0 0 22px;font-size:15px;line-height:1.75;color:#5c5c5c;max-width:44ch;text-wrap:pretty">ייפוי כוח מתמשך מאפשר לכם לבחור מראש מי יטפל בענייניכם — הרפואיים, האישיים והרכושיים — ולפי אילו עקרונות. ההחלטה נשארת שלכם.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="questionnaire.html" style="background:#2b2b2b;color:#fff;padding:12px 26px;font-size:14px">מתחילים בשאלון קצר</a>
+        <a href="contact.html" style="border:1px solid #cfcfcf;padding:12px 26px;font-size:14px;color:#3a3a3a">לתיאום פגישה עם עו"ד</a>
+      </div>
+    </div>
+    <div style="background:#e3e3e3;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:11px;color:#8d8d8d">תמונת שער</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(20px,3vw,30px);align-items:center;padding:clamp(24px,4.5vw,40px);border-bottom:1px solid #ececec">
+    <div style="background:#e3e3e3;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,monospace;font-size:11px;color:#8d8d8d">תמונה</div>
+    <div>
+      <h2 style="margin:0 0 12px;font-size:clamp(19px,3vw,22px);font-weight:700;color:#161616">מה זה ייפוי כוח מתמשך?</h2>
+      <p style="margin:0;font-size:14px;line-height:1.85;color:#5c5c5c;text-wrap:pretty">זהו מסמך משפטי שבו אתם ממנים מראש אדם שאתם סומכים עליו, כדי שיוכל לפעול בשמכם ביום שבו לא תהיו מסוגלים לכך. המסמך נחתם בפני עורך דין שהוסמך לכך ונרשם באפוטרופוס הכללי.</p>
+    </div>
+  </div>
+
+  <div style="padding:clamp(24px,4.5vw,40px);border-bottom:1px solid #ececec;background:#fbfbfb">
+    <h2 style="margin:0 0 24px;font-size:clamp(19px,3vw,22px);font-weight:700;text-align:center;color:#161616">מה עלול לקרות בלי ייפוי כוח מתמשך?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:16px"><div style="background:#e3e3e3;height:82px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">מינוי אפוטרופוס בבית משפט</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">הליך ארוך ויקר, שבסופו בית המשפט בוחר במקומכם.</p></div>
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:16px"><div style="background:#e3e3e3;height:82px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">חשבונות שנחסמים</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">בן הזוג או הילדים אינם רשאים לפעול בחשבון או בנכסים בלי הרשאה.</p></div>
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:16px"><div style="background:#e3e3e3;height:82px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">מחלוקות במשפחה</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">בלי הנחיה ברורה, כל אחד מפרש אחרת מה הייתם רוצים.</p></div>
+    </div>
+  </div>
+
+  <div style="padding:clamp(24px,4.5vw,40px);border-bottom:1px solid #ececec">
+    <h2 style="margin:0 0 24px;font-size:clamp(19px,3vw,22px);font-weight:700;text-align:center;color:#161616">מה ייפוי כוח מתמשך נותן לכם?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+      <div style="border:1px solid #dcdcdc;padding:16px"><div style="background:#e3e3e3;height:74px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">שליטה בזהות מקבל ההחלטות</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">אתם בוחרים מי מיופה הכוח, ומי ישמש מחליף אם יידרש.</p></div>
+      <div style="border:1px solid #dcdcdc;padding:16px"><div style="background:#e3e3e3;height:74px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">הנחיות מקדימות</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">אפשר לפרט בדיוק כיצד לפעול בנושאים רפואיים, כספיים ואישיים.</p></div>
+      <div style="border:1px solid #dcdcdc;padding:16px"><div style="background:#e3e3e3;height:74px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">שקט נפשי למשפחה</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">אין צורך להתדיין או לנחש — הכול כתוב מראש.</p></div>
+    </div>
+  </div>
+
+  <div style="padding:clamp(24px,4.5vw,40px);border-bottom:1px solid #ececec;background:#fbfbfb">
+    <h2 style="margin:0 0 24px;font-size:clamp(19px,3vw,22px);font-weight:700;text-align:center;color:#161616">למי השירות מתאים?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:16px"><div style="background:#e3e3e3;height:74px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">זוגות בגיל הביניים</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">שרוצים להסדיר מבעוד מועד, בלי לחץ ובלי אירוע מטריד ברקע.</p></div>
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:16px"><div style="background:#e3e3e3;height:74px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">ילדים להורים מבוגרים</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">שרוצים לסייע להורים לקבוע בעצמם, כל עוד הם כשירים לכך.</p></div>
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:16px"><div style="background:#e3e3e3;height:74px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">בעלי עסק ונכסים</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">שנדרשת להם רציפות ניהולית גם בתקופה של חוסר כשירות.</p></div>
+    </div>
+  </div>
+
+  <div style="padding:clamp(24px,4.5vw,40px);border-bottom:1px solid #ececec">
+    <h2 style="margin:0 0 24px;font-size:clamp(19px,3vw,22px);font-weight:700;text-align:center;color:#161616">איך התהליך עובד?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:14px">
+      <div style="text-align:center"><div style="border:1px solid #dcdcdc;padding:14px 0;font-size:18px;font-weight:700;margin-bottom:10px">01</div><div style="font-size:13px;line-height:1.6;color:#5c5c5c">שאלון קצר</div></div>
+      <div style="text-align:center"><div style="border:1px solid #dcdcdc;padding:14px 0;font-size:18px;font-weight:700;margin-bottom:10px">02</div><div style="font-size:13px;line-height:1.6;color:#5c5c5c">שיחת היכרות</div></div>
+      <div style="text-align:center"><div style="border:1px solid #dcdcdc;padding:14px 0;font-size:18px;font-weight:700;margin-bottom:10px">03</div><div style="font-size:13px;line-height:1.6;color:#5c5c5c">ניסוח המסמך</div></div>
+      <div style="text-align:center"><div style="border:1px solid #dcdcdc;padding:14px 0;font-size:18px;font-weight:700;margin-bottom:10px">04</div><div style="font-size:13px;line-height:1.6;color:#5c5c5c">בחירת מועד ביומן</div></div>
+      <div style="text-align:center"><div style="border:1px solid #dcdcdc;padding:14px 0;font-size:18px;font-weight:700;margin-bottom:10px">05</div><div style="font-size:13px;line-height:1.6;color:#5c5c5c">חתימה מול עו"ד</div></div>
+    </div>
+  </div>
+
+  <div style="padding:clamp(24px,4.5vw,40px);border-bottom:1px solid #ececec;background:#fbfbfb">
+    <h2 style="margin:0 0 24px;font-size:clamp(19px,3vw,22px);font-weight:700;text-align:center;color:#161616">למה מרקמן טומשין?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:16px"><div style="background:#e3e3e3;height:74px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">עורכי דין מוסמכים</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">הוסמכו במיוחד לעריכת ייפוי כוח מתמשך.</p></div>
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:16px"><div style="background:#e3e3e3;height:74px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">מחיר ידוע מראש</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">בלי הפתעות ובלי שעות עבודה פתוחות.</p></div>
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:16px"><div style="background:#e3e3e3;height:74px;margin-bottom:14px"></div><h4 style="margin:0 0 8px;font-size:15px;font-weight:700">רוב התהליך מרחוק</h4><p style="margin:0;font-size:13px;line-height:1.7;color:#6b6b6b">פגישה פיזית אחת בלבד, במועד שנוח לכם.</p></div>
+    </div>
+  </div>
+
+  <div style="padding:clamp(24px,4.5vw,40px);border-bottom:1px solid #ececec">
+    <h2 style="margin:0 0 24px;font-size:clamp(19px,3vw,22px);font-weight:700;text-align:center;color:#161616">לקוחות מספרים</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+      <div style="border:1px solid #dcdcdc;padding:16px;display:flex;flex-direction:column;gap:10px"><div style="background:#e3e3e3;height:12px;width:100%"></div><div style="background:#e3e3e3;height:12px;width:92%"></div><div style="background:#e3e3e3;height:12px;width:70%"></div><div style="background:#e3e3e3;height:12px;width:40%;margin-top:6px"></div></div>
+      <div style="border:1px solid #dcdcdc;padding:16px;display:flex;flex-direction:column;gap:10px"><div style="background:#e3e3e3;height:12px;width:100%"></div><div style="background:#e3e3e3;height:12px;width:88%"></div><div style="background:#e3e3e3;height:12px;width:65%"></div><div style="background:#e3e3e3;height:12px;width:40%;margin-top:6px"></div></div>
+      <div style="border:1px solid #dcdcdc;padding:16px;display:flex;flex-direction:column;gap:10px"><div style="background:#e3e3e3;height:12px;width:100%"></div><div style="background:#e3e3e3;height:12px;width:95%"></div><div style="background:#e3e3e3;height:12px;width:60%"></div><div style="background:#e3e3e3;height:12px;width:40%;margin-top:6px"></div></div>
+    </div>
+  </div>
+
+  <div id="contact" style="padding:clamp(24px,4.5vw,40px);border-bottom:1px solid #ececec;background:#fbfbfb">
+    <h2 style="margin:0 0 22px;font-size:clamp(19px,3vw,22px);font-weight:700;text-align:center;color:#161616">רוצים להתחיל?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:660px;margin:0 auto 16px">
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:20px;text-align:center"><div style="font-size:16px;font-weight:700;margin-bottom:6px">יחיד</div><div style="font-size:15px;color:#3a3a3a">2,900 ₪ + מע"מ</div></div>
+      <div style="border:1px solid #dcdcdc;background:#fff;padding:20px;text-align:center"><div style="font-size:16px;font-weight:700;margin-bottom:6px">זוג</div><div style="font-size:15px;color:#3a3a3a">4,000 ₪ + מע"מ</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:660px;margin:0 auto">
+      <a href="questionnaire.html" style="background:#2b2b2b;color:#fff;padding:14px 0;text-align:center;font-size:14px">מתחילים בשאלון קצר</a>
+      <a href="contact.html" style="border:1px solid #cfcfcf;padding:14px 0;text-align:center;font-size:14px;color:#3a3a3a;background:#fff">לתיאום פגישה עם עו"ד</a>
+    </div>
+  </div>
+
+  <div style="padding:clamp(24px,4.5vw,40px)">
+    <h2 style="margin:0 0 20px;font-size:clamp(19px,3vw,22px);font-weight:700;text-align:center;color:#161616">שאלות נפוצות</h2>
+    <div style="display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto">
+      <details style="border:1px solid #dcdcdc"><summary style="list-style:none;cursor:pointer;padding:14px 16px;font-size:14px;display:flex;justify-content:space-between;gap:12px"><span>מה ההבדל בין ייפוי כוח מתמשך לאפוטרופסות?</span><span style="color:#9a9a9a">▾</span></summary><div style="padding:0 16px 14px;font-size:13px;line-height:1.8;color:#6b6b6b">בייפוי כוח מתמשך אתם בוחרים מראש את מיופה הכוח. באפוטרופסות בית המשפט הוא שממנה, לרוב לאחר שכבר אין באפשרותכם להביע עמדה.</div></details>
+      <details style="border:1px solid #dcdcdc"><summary style="list-style:none;cursor:pointer;padding:14px 16px;font-size:14px;display:flex;justify-content:space-between;gap:12px"><span>מתי המסמך נכנס לתוקף?</span><span style="color:#9a9a9a">▾</span></summary><div style="padding:0 16px 14px;font-size:13px;line-height:1.8;color:#6b6b6b">רק כאשר נקבע שאינכם מסוגלים עוד לקבל החלטות בעניין מסוים, ובהתאם לתנאים שקבעתם במסמך.</div></details>
+      <details style="border:1px solid #dcdcdc"><summary style="list-style:none;cursor:pointer;padding:14px 16px;font-size:14px;display:flex;justify-content:space-between;gap:12px"><span>אפשר לשנות או לבטל אותו?</span><span style="color:#9a9a9a">▾</span></summary><div style="padding:0 16px 14px;font-size:13px;line-height:1.8;color:#6b6b6b">כן, בכל עת כל עוד אתם כשירים — באמצעות הודעה לאפוטרופוס הכללי.</div></details>
+      <details style="border:1px solid #dcdcdc"><summary style="list-style:none;cursor:pointer;padding:14px 16px;font-size:14px;display:flex;justify-content:space-between;gap:12px"><span>כמה זמן לוקח?</span><span style="color:#9a9a9a">▾</span></summary><div style="padding:0 16px 14px;font-size:13px;line-height:1.8;color:#6b6b6b">בין שבועיים לחודש, תלוי בזמינותכם לפגישת החתימה.</div></details>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px clamp(14px,3vw,22px);border-top:1px solid #e0e0e0;font-size:12px;color:#8a8a8a">
+    <span>מרקמן טומשין ושות' — משרד עורכי דין ונוטריון</span>
+    <div style="display:flex;gap:14px"><a href="#privacy" style="color:#8a8a8a">מדיניות פרטיות</a><a href="#terms" style="color:#8a8a8a">תנאי שימוש</a><a href="contact.html" style="color:#8a8a8a">צור קשר</a></div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>
