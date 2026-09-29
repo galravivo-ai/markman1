@@ -13,7 +13,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="./image-slot.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&display=swap">
 <style>
+@media (max-width:1100px){.statItem{gap:10px!important}.statItem>span:first-child{display:none!important}}
+
+main h1,main h2,section h1,section h2{font-family:"Frank Ruhl Libre",Georgia,serif!important;font-weight:400!important;letter-spacing:-.01em!important}
+section h2 span,section h1 span{font-weight:500!important}
 body{margin:0;background:#f7f3ed;font-family:Heebo,Arial,sans-serif;-webkit-font-smoothing:antialiased;color:#1c2333}
 a{color:#1c2333;text-decoration:none;transition:color .2s,background .2s,border-color .2s}
 a:hover{color:#a8845a}
@@ -25,6 +30,10 @@ details[open] .faqIco{transform:rotate(45deg)}
 @keyframes navItem{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
 @keyframes navIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 @media (max-width:900px){
+#rkGrid{grid-template-columns:minmax(0,1fr)!important;max-width:560px;margin:0 auto}
+.rkCol{border-inline-start:none!important;border-top:1px solid rgba(226,201,166,.16)}
+.rkCol:first-child{border-top:none}
+.rkCol>div:first-child{min-height:0!important;padding-bottom:10px!important}
 .tlRow .tlNodeWrap>span{width:52px!important;height:52px!important;box-shadow:0 0 0 5px #fff,0 0 0 6px #e6dfd4!important}
 .tlRow .tlNodeWrap svg{width:22px;height:22px}
 .tlCard{padding:22px 20px!important}
@@ -57,6 +66,8 @@ header>div>a:first-child{position:relative;z-index:51}
 header .mhText>span:first-child{font-size:16px!important}
 header .mhText>span:last-child{font-size:10px!important}
 #heroStats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.statItem{flex-direction:column!important;gap:8px!important;text-align:center;border-inline-end:none!important;border-bottom:1px solid rgba(226,201,166,.14)}
+#heroImg{max-width:340px!important}
 #svcGrid{grid-template-columns:minmax(0,1fr)!important;max-width:460px;margin:0 auto;row-gap:40px!important}
 #procGrid{grid-template-columns:minmax(0,1fr)!important;gap:18px!important}
 #procLine{top:0!important;bottom:0;right:41px!important;left:auto!important;width:1px;height:auto!important;background:linear-gradient(180deg,#c6a276,rgba(198,162,118,.3))!important}
@@ -163,66 +174,86 @@ footer>div{flex-direction:column;align-items:flex-start!important}
         </details>
         <a href="questionnaire.html" style="color:#fff">שאלון התאמה</a>
         <a href="contact.html" style="color:#fff">צור קשר</a>
-        <a href="questionnaire.html" style="background:linear-gradient(135deg,#e2c9a6,#b8915f);color:#1c2333;padding:12px 26px;font-weight:600;font-size:14px;letter-spacing:.02em" style-hover="filter:brightness(1.08)">מתחילים עכשיו</a>
+        <a href="questionnaire.html" style="background:#1c2333;color:#fff;padding:12px 26px;font-weight:600;font-size:14px;letter-spacing:.02em;border-radius:999px" style-hover="background:#2b3550">מתחילים עכשיו</a>
       </nav>
     </div>
   </header>
 
   <sc-if value="{{ heroSplit }}" hint-placeholder-val="{{ true }}">
-  <section data-screen-label="Hero" style="background:#1c2333;color:#fff;position:relative;overflow:hidden">
+  <section data-screen-label="Hero" style="border-top:1px solid #efe7da;background:#fbf8f3;color:#1c2333;position:relative;overflow:hidden">
     <div style="position:absolute;inset:0;background:radial-gradient(900px 500px at 15% 40%,rgba(198,162,118,.14),transparent 60%);pointer-events:none"></div>
-    <div id="heroInner" style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(24px,3vw,40px) clamp(18px,4vw,40px) clamp(22px,2.6vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(28px,4vw,56px);align-items:center">
-      <div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px"><span style="width:44px;height:1px;background:#c6a276"></span><span style="font-size:13px;letter-spacing:.22em;color:#e2c9a6;font-weight:500">צוואות · ייפויי כוח מתמשכים</span><span style="width:44px;height:1px;background:#c6a276"></span></div>
-        <h1 style="margin:0 0 14px;font-weight:300;letter-spacing:-.02em;font-size:clamp(30px,3.8vw,46px);line-height:1.12;letter-spacing:-.01em;text-wrap:balance">יש החלטות שעדיף לקבל <span style="color:#e2c9a6;font-weight:500">בזמן שעוד אפשר לבחור</span></h1>
-        <p style="margin:0 0 22px;font-size:clamp(15px,1.3vw,17px);line-height:1.7;color:#c9c3b8;max-width:46ch;text-wrap:pretty">ייפוי כוח מתמשך וצוואה מבטיחים שהרצון שלכם יהיה ברור לכולם — גם ביום שבו כבר לא תוכלו להגיד אותו בעצמכם.</p>
+    <div id="heroInner" style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(18px,4vw,40px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(28px,4vw,64px);align-items:end">
+      <div style="padding-bottom:clamp(56px,7vw,110px)">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px"><span style="width:44px;height:1px;background:#c6a276"></span><span style="font-size:13px;letter-spacing:.22em;color:#a8845a;font-weight:500">צוואות · ייפויי כוח מתמשכים</span><span style="width:44px;height:1px;background:#c6a276"></span></div>
+        <h1 style="margin:0 0 14px;font-weight:300;letter-spacing:-.02em;font-size:clamp(30px,3.8vw,46px);line-height:1.12;letter-spacing:-.01em;text-wrap:balance">יש החלטות שעדיף לקבל <span style="color:#a8845a;font-weight:500">בזמן שעוד אפשר לבחור</span></h1>
+        <p style="margin:0 0 22px;font-size:clamp(15px,1.3vw,17px);line-height:1.7;color:#4a5060;max-width:46ch;text-wrap:pretty">ייפוי כוח מתמשך וצוואה מבטיחים שהרצון שלכם יהיה ברור לכולם — גם ביום שבו כבר לא תוכלו להגיד אותו בעצמכם.</p>
         <div style="display:flex;gap:14px;flex-wrap:wrap">
-          <a class="heroBtn" href="questionnaire.html" style="background:linear-gradient(135deg,#e2c9a6,#b8915f);color:#1c2333;padding:15px 30px;font-size:16px;font-weight:600;display:inline-flex;align-items:center;gap:12px" style-hover="filter:brightness(1.08)">לשאלון התאמה קצר<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
-          <a class="heroBtn" href="contact.html" style="border:1px solid rgba(226,201,166,.5);color:#fff;padding:15px 30px;font-size:16px" style-hover="background:rgba(226,201,166,.1);color:#fff">לתיאום פגישה עם עו"ד</a>
+          <a class="heroBtn" href="questionnaire.html" style="background:#1c2333;color:#fff;padding:15px 30px;font-size:16px;font-weight:600;display:inline-flex;align-items:center;gap:12px;border-radius:999px" style-hover="background:#2b3550">לשאלון התאמה קצר<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
+          <a class="heroBtn" href="contact.html" style="border:1px solid rgba(168,132,90,.5);color:#1c2333;padding:15px 30px;font-size:16px;border-radius:999px" style-hover="background:rgba(168,132,90,.1);color:#1c2333">לתיאום פגישה ללא עלות</a>
         </div>
       </div>
-      <div style="position:relative;padding:0 0 22px 22px">
-        <div style="position:absolute;top:22px;right:-22px;bottom:0;left:0;border:1px solid rgba(198,162,118,.45)"></div>
-        <div style="position:relative;aspect-ratio:4/3;background:#262e41;max-height:min(340px,42vh);width:100%" id="heroImg">
-          <image-slot id="hero-future" shape="rect" placeholder="מקום לתמונה עתידית"></image-slot>
+      <div id="heroImg" style="position:relative;width:100%;max-width:470px;margin-inline:auto;align-self:end">
+        <div aria-hidden="true" style="position:absolute;bottom:0;left:6%;right:6%;height:86%;border-radius:999px 999px 0 0;background:radial-gradient(420px 320px at 50% 20%,#2b3550,#1c2333 70%)"></div>
+        <div aria-hidden="true" style="position:absolute;bottom:0;left:1%;right:1%;height:91%;border-radius:999px 999px 0 0;border:1px solid rgba(198,162,118,.5);border-bottom:none"></div>
+        <div style="position:relative;aspect-ratio:4/5;width:88%;margin-inline:auto;border-radius:999px 999px 0 0;overflow:hidden;background:#ece5da">
+          <image-slot id="hero-lawyer" shape="rect" fit="contain" placeholder="תמונת עו&quot;ד — חצי גוף, רקע שקוף (PNG)"></image-slot>
         </div>
+        <div style="position:absolute;bottom:34px;right:-8px;display:flex;align-items:center;gap:12px;background:#fff;padding:12px 18px 12px 14px;border-radius:999px;box-shadow:0 24px 50px -22px rgba(28,35,51,.45);pointer-events:none"><span style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:#1c2333;color:#e2c9a6"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14L7 22l5-3 5 3-1.5-8"></path></svg></span><span style="display:flex;flex-direction:column;gap:1px"><strong style="font-size:14.5px;font-weight:700;color:#1c2333">עו"ד מוסמך</strong><span style="font-size:12.5px;color:#a8845a">ליווי אישי מהשיחה הראשונה</span></span></div>
       </div>
     </div>
-    <div style="position:relative;border-top:1px solid rgba(226,201,166,.16)">
-      <div id="heroStats" style="max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,40px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr))">
-        <div style="position:relative;padding-block:16px;padding-inline:0 28px;border-inline-end:1px solid rgba(226,201,166,.16);display:flex;flex-direction:column;gap:8px"><div style="font-size:clamp(32px,3.2vw,44px)"><span style="display:inline-flex;align-items:flex-start;gap:3px;direction:ltr"><span style="font-size:1em;font-weight:200;letter-spacing:-.04em;line-height:.9;background:linear-gradient(180deg,#f5e6cc 0%,#c6a276 100%);-webkit-background-clip:text;background-clip:text;color:transparent">60</span><span style="font-size:.45em;font-weight:300;color:#c6a276;line-height:1;margin-top:2px">+</span></span></div><div style="display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.14em;color:#c9c3b8;font-weight:500"><span style="width:18px;height:1px;background:#c6a276"></span>שנות פעילות</div></div>
-        <div style="position:relative;padding-block:16px;padding-inline:28px;border-inline-end:1px solid rgba(226,201,166,.16);display:flex;flex-direction:column;gap:8px"><div style="font-size:clamp(32px,3.2vw,44px)"><span style="display:inline-flex;align-items:flex-start;gap:3px;direction:ltr"><span style="font-size:1em;font-weight:200;letter-spacing:-.04em;line-height:.9;background:linear-gradient(180deg,#f5e6cc 0%,#c6a276 100%);-webkit-background-clip:text;background-clip:text;color:transparent">130</span><span style="font-size:.45em;font-weight:300;color:#c6a276;line-height:1;margin-top:2px">+</span></span></div><div style="display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.14em;color:#c9c3b8;font-weight:500"><span style="width:18px;height:1px;background:#c6a276"></span>עורכי דין</div></div>
-        <div style="position:relative;padding-block:16px;padding-inline:28px;border-inline-end:1px solid rgba(226,201,166,.16);display:flex;flex-direction:column;gap:8px"><div style="font-size:clamp(32px,3.2vw,44px)"><span style="display:inline-flex;align-items:flex-start;gap:3px;direction:ltr"><span style="font-size:1em;font-weight:200;letter-spacing:-.04em;line-height:.9;background:linear-gradient(180deg,#f5e6cc 0%,#c6a276 100%);-webkit-background-clip:text;background-clip:text;color:transparent">12</span></span></div><div style="display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.14em;color:#c9c3b8;font-weight:500"><span style="width:18px;height:1px;background:#c6a276"></span>סניפים בארץ</div></div>
-        <div style="position:relative;padding-block:16px;padding-inline:28px;display:flex;flex-direction:column;gap:8px"><div style="font-size:clamp(32px,3.2vw,44px)"><span style="display:inline-flex;align-items:flex-start;gap:3px;direction:ltr"><span style="font-size:1em;font-weight:200;letter-spacing:-.04em;line-height:.9;background:linear-gradient(180deg,#f5e6cc 0%,#c6a276 100%);-webkit-background-clip:text;background-clip:text;color:transparent">4</span></span></div><div style="display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.14em;color:#c9c3b8;font-weight:500"><span style="width:18px;height:1px;background:#c6a276"></span>שפות שירות</div></div>
+    <div style="position:relative;background:#1c2333;overflow:hidden">
+      <div aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(220px,26vw,380px);font-weight:200;letter-spacing:-.06em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(226,201,166,.09);pointer-events:none;direction:ltr;white-space:nowrap">MT</div>
+      <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(600px 200px at 50% 0%,rgba(198,162,118,.14),transparent 70%);pointer-events:none"></div>
+      <div id="heroStats" style="position:relative;max-width:1240px;margin:0 auto;padding:0 clamp(18px,4vw,40px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr))">
+        <div class="statItem" style="position:relative;display:flex;align-items:center;justify-content:center;gap:16px;padding:clamp(26px,3vw,38px) 12px;border-inline-end:1px solid rgba(226,201,166,.14);">
+          <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(226,201,166,.35);color:#e2c9a6;flex:0 0 auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14L7 22l5-3 5 3-1.5-8"></path></svg></span>
+          <span style="display:inline-flex;align-items:flex-start;direction:ltr"><span data-count="60" style="font-size:clamp(40px,4.4vw,58px);font-weight:200;letter-spacing:-.03em;line-height:1;color:#e2c9a6;font-variant-numeric:tabular-nums">60</span><span style="font-size:18px;color:#c6a276;margin-top:4px;margin-left:2px">+</span></span>
+          <span style="font-size:15px;font-weight:400;color:#d6d0c5;line-height:1.3;white-space:nowrap">שנות ניסיון</span>
+        </div>
+        <div class="statItem" style="position:relative;display:flex;align-items:center;justify-content:center;gap:16px;padding:clamp(26px,3vw,38px) 12px;border-inline-end:1px solid rgba(226,201,166,.14);">
+          <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(226,201,166,.35);color:#e2c9a6;flex:0 0 auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14a6.5 6.5 0 0 1 3.5 6"></path></svg></span>
+          <span style="display:inline-flex;align-items:flex-start;direction:ltr"><span data-count="130" style="font-size:clamp(40px,4.4vw,58px);font-weight:200;letter-spacing:-.03em;line-height:1;color:#e2c9a6;font-variant-numeric:tabular-nums">130</span><span style="font-size:18px;color:#c6a276;margin-top:4px;margin-left:2px">+</span></span>
+          <span style="font-size:15px;font-weight:400;color:#d6d0c5;line-height:1.3;white-space:nowrap">עורכי דין</span>
+        </div>
+        <div class="statItem" style="position:relative;display:flex;align-items:center;justify-content:center;gap:16px;padding:clamp(26px,3vw,38px) 12px;border-inline-end:1px solid rgba(226,201,166,.14);">
+          <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(226,201,166,.35);color:#e2c9a6;flex:0 0 auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
+          <span style="display:inline-flex;align-items:flex-start;direction:ltr"><span data-count="12" style="font-size:clamp(40px,4.4vw,58px);font-weight:200;letter-spacing:-.03em;line-height:1;color:#e2c9a6;font-variant-numeric:tabular-nums">12</span></span>
+          <span style="font-size:15px;font-weight:400;color:#d6d0c5;line-height:1.3;white-space:nowrap">סניפים בארץ</span>
+        </div>
+        <div class="statItem" style="position:relative;display:flex;align-items:center;justify-content:center;gap:16px;padding:clamp(26px,3vw,38px) 12px;">
+          <span style="display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;border:1px solid rgba(226,201,166,.35);color:#e2c9a6;flex:0 0 auto"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"></path></svg></span>
+          <span style="display:inline-flex;align-items:flex-start;direction:ltr"><span data-count="4" style="font-size:clamp(40px,4.4vw,58px);font-weight:200;letter-spacing:-.03em;line-height:1;color:#e2c9a6;font-variant-numeric:tabular-nums">4</span></span>
+          <span style="font-size:15px;font-weight:400;color:#d6d0c5;line-height:1.3;white-space:nowrap">שפות שירות</span>
+        </div>
       </div>
     </div>
   </section>
   </sc-if>
 
   <sc-if value="{{ heroCentered }}" hint-placeholder-val="{{ false }}">
-  <section data-screen-label="Hero" style="background:#1c2333;color:#fff;position:relative;overflow:hidden">
+  <section data-screen-label="Hero" style="border-top:1px solid #efe7da;background:#fbf8f3;color:#1c2333;position:relative;overflow:hidden">
     <div style="position:absolute;inset:0;opacity:.35">
       <image-slot id="hero-bg" shape="rect" placeholder="תמונת רקע רחבה" src="https://www.mt-law.co.il/wp-content/uploads/2021/09/%D7%9E%D7%A8%D7%A7%D7%9E%D7%9F%D7%98%D7%95%D7%9E%D7%A9%D7%99%D7%9F%D7%9E%D7%95%D7%91%D7%99%D7%99%D7%9C.jpg"></image-slot>
     </div>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,35,51,.55),#1c2333 92%);pointer-events:none"></div>
     <div style="position:relative;max-width:900px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(18px,4vw,40px) clamp(48px,6vw,72px);text-align:center;pointer-events:none">
-      <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:30px"><span style="width:44px;height:1px;background:#c6a276"></span><span style="font-size:13px;letter-spacing:.22em;color:#e2c9a6">צוואות · ייפויי כוח מתמשכים</span><span style="width:44px;height:1px;background:#c6a276"></span></div>
-      <h1 style="margin:0 0 28px;font-weight:300;letter-spacing:-.02em;font-size:clamp(34px,5vw,60px);line-height:1.1;text-wrap:balance">יש החלטות שעדיף לקבל <span style="color:#e2c9a6;font-weight:500">בזמן שעוד אפשר לבחור</span></h1>
-      <p style="margin:0 auto 44px;font-size:clamp(17px,1.6vw,20px);line-height:1.8;color:#d6d0c5;max-width:52ch">ייפוי כוח מתמשך וצוואה מבטיחים שהרצון שלכם יהיה ברור לכולם — גם ביום שבו כבר לא תוכלו להגיד אותו בעצמכם.</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:30px"><span style="width:44px;height:1px;background:#c6a276"></span><span style="font-size:13px;letter-spacing:.22em;color:#a8845a">צוואות · ייפויי כוח מתמשכים</span><span style="width:44px;height:1px;background:#c6a276"></span></div>
+      <h1 style="margin:0 0 28px;font-weight:300;letter-spacing:-.02em;font-size:clamp(34px,5vw,60px);line-height:1.1;text-wrap:balance">יש החלטות שעדיף לקבל <span style="color:#a8845a;font-weight:500">בזמן שעוד אפשר לבחור</span></h1>
+      <p style="margin:0 auto 44px;font-size:clamp(17px,1.6vw,20px);line-height:1.8;color:#4a5060;max-width:52ch">ייפוי כוח מתמשך וצוואה מבטיחים שהרצון שלכם יהיה ברור לכולם — גם ביום שבו כבר לא תוכלו להגיד אותו בעצמכם.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;pointer-events:auto">
-        <a class="heroBtn" href="questionnaire.html" style="background:linear-gradient(135deg,#e2c9a6,#b8915f);color:#1c2333;padding:18px 36px;font-size:16px;font-weight:600">לשאלון התאמה קצר</a>
-        <a class="heroBtn" href="contact.html" style="border:1px solid rgba(226,201,166,.5);color:#fff;padding:18px 36px;font-size:16px">לתיאום פגישה עם עו"ד</a>
+        <a class="heroBtn" href="questionnaire.html" style="background:#1c2333;color:#fff;padding:18px 36px;font-size:16px;font-weight:600;border-radius:999px">לשאלון התאמה קצר</a>
+        <a class="heroBtn" href="contact.html" style="border:1px solid rgba(168,132,90,.5);color:#1c2333;padding:18px 36px;font-size:16px;border-radius:999px">לתיאום פגישה ללא עלות</a>
       </div>
     </div>
   </section>
   </sc-if>
 
-  <section data-screen-label="Services" style="position:relative;overflow:hidden">
+  <section data-screen-label="Services" style="border-top:1px solid #efe7da;position:relative;overflow:hidden">
     <div aria-hidden="true" style="position:absolute;top:40px;left:50%;transform:translateX(-50%);font-size:clamp(220px,34vw,460px);font-weight:200;letter-spacing:-.06em;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(168,132,90,.14);pointer-events:none;user-select:none;direction:ltr">MT</div>
     <div style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(52px,6vw,80px) clamp(18px,4vw,40px)">
       <div style="text-align:center;max-width:680px;margin:0 auto clamp(40px,4.5vw,56px)">
         <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:20px"><span style="width:40px;height:1px;background:#c6a276"></span><span style="font-size:13px;letter-spacing:.26em;color:#a8845a;font-weight:600">השירותים שלנו</span><span style="width:40px;height:1px;background:#c6a276"></span></div>
-        <h2 style="margin:0 0 12px;font-weight:300;letter-spacing:-.02em;font-size:clamp(30px,3.6vw,44px);line-height:1.12">שני מסמכים, <span style="color:#a8845a;font-weight:500">או שניהם יחד</span></h2>
+        <h2 style="margin:0 0 12px;font-weight:300;letter-spacing:-.02em;font-size:clamp(30px,3.6vw,44px);line-height:1.12">בחרו את <span style="color:#a8845a;font-weight:500">ההגנה המתאימה לכם</span></h2>
         <p style="margin:0;font-size:17px;line-height:1.8;color:#5d6270">אחד פועל בחייכם, השני לאחר מכן. יחד הם סוגרים כל פער.</p>
       </div>
       <div id="svcGrid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,32px);align-items:stretch">
@@ -242,7 +273,7 @@ footer>div{flex-direction:column;align-items:flex-start!important}
           <p style="margin:0 auto;max-width:30ch;font-size:15px;font-weight:300;line-height:1.6;color:#5d6270;text-wrap:pretty">מי יקבל את הרכוש שלכם, באיזה חלק ובאיזה אופן — בדיוק כפי שרציתם.</p>
         </div>
         <ul style="list-style:none;margin:0 0 22px;padding:0;flex:1"><li style="display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid #eee6da;font-size:15px;color:#3d4250"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#f4ede2;color:#a8845a"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>צוואה אישית או הדדית</li><li style="display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid #eee6da;font-size:15px;color:#3d4250"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#f4ede2;color:#a8845a"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>הגנה על בן/בת הזוג</li><li style="display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid #eee6da;font-size:15px;color:#3d4250"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#f4ede2;color:#a8845a"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>הפקדה ברשם הירושות</li></ul>
-        <a href="will.html" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 0;font-size:15px;font-weight:600;border:1px solid #1c2333;color:#1c2333" style-hover="background:#1c2333;color:#fff">למידע נוסף<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a></div>
+        <a href="will.html" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 0;font-size:15px;font-weight:600;border:1px solid #1c2333;color:#1c2333;border-radius:999px" style-hover="background:#1c2333;color:#fff">למידע נוסף<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a></div>
       </div>
       <div id="svc-poa-card" style="background:#fff;border:1px solid #e6dfd4;padding:0 14px 22px;display:flex;flex-direction:column;overflow:hidden" style-hover="box-shadow:0 40px 70px -40px rgba(28,35,51,.35);border-color:#d9c7ab">
         <div style="padding:0 16px;display:flex;flex-direction:column;flex:1"><div style="position:relative;margin:0 -30px 40px">
@@ -260,7 +291,7 @@ footer>div{flex-direction:column;align-items:flex-start!important}
           <p style="margin:0 auto;max-width:30ch;font-size:15px;font-weight:300;line-height:1.6;color:#5d6270;text-wrap:pretty">מי יחליט עבורכם אם יבוא יום שבו לא תוכלו להחליט בעצמכם.</p>
         </div>
         <ul style="list-style:none;margin:0 0 22px;padding:0;flex:1"><li style="display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid #eee6da;font-size:15px;color:#3d4250"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#f4ede2;color:#a8845a"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>עניינים רכושיים, אישיים ורפואיים</li><li style="display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid #eee6da;font-size:15px;color:#3d4250"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#f4ede2;color:#a8845a"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>הנחיות מקדימות</li><li style="display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid #eee6da;font-size:15px;color:#3d4250"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#f4ede2;color:#a8845a"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>הפקדה באפוטרופוס הכללי</li></ul>
-        <a href="power-of-attorney.html" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 0;font-size:15px;font-weight:600;border:1px solid #1c2333;color:#1c2333" style-hover="background:#1c2333;color:#fff">למידע נוסף<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a></div>
+        <a href="power-of-attorney.html" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 0;font-size:15px;font-weight:600;border:1px solid #1c2333;color:#1c2333;border-radius:999px" style-hover="background:#1c2333;color:#fff">למידע נוסף<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a></div>
       </div>
       <div id="svc-bundle-card" style="position:relative;padding:1px;background:linear-gradient(160deg,#e2c9a6,#8c6b44 45%,#e2c9a6);box-shadow:0 50px 90px -40px rgba(28,35,51,.6)">
         <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);z-index:2;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#e2c9a6,#b8915f);color:#1c2333;font-size:12px;font-weight:700;letter-spacing:.2em;padding:8px 20px;white-space:nowrap"><span style="width:5px;height:5px;background:#1c2333;transform:rotate(45deg)"></span>מומלץ<span style="width:5px;height:5px;background:#1c2333;transform:rotate(45deg)"></span></span>
@@ -281,7 +312,7 @@ footer>div{flex-direction:column;align-items:flex-start!important}
           <p style="margin:0 auto;max-width:30ch;font-size:15px;font-weight:300;line-height:1.6;color:#c9c3b8;text-wrap:pretty">שני המסמכים בתהליך אחד, בניסוח מתואם וללא סתירות.</p>
         </div>
         <ul style="list-style:none;margin:0 0 22px;padding:0;flex:1"><li style="display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid rgba(226,201,166,.16);font-size:15px;color:#e7e2d9"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(226,201,166,.14);color:#e2c9a6"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>שאלון אחד לשני המסמכים</li><li style="display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid rgba(226,201,166,.16);font-size:15px;color:#e7e2d9"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(226,201,166,.14);color:#e2c9a6"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>פגישת חתימה אחת</li><li style="display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid rgba(226,201,166,.16);font-size:15px;color:#e7e2d9"><span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(226,201,166,.14);color:#e2c9a6"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>עלות מופחתת</li></ul>
-        <a href="bundle.html" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 0;font-size:15px;font-weight:600;background:linear-gradient(135deg,#e2c9a6,#b8915f);color:#1c2333" style-hover="filter:brightness(1.08);color:#1c2333">לפרטי החבילה<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
+        <a href="bundle.html" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 0;font-size:15px;font-weight:600;background:#1c2333;color:#fff;border-radius:999px" style-hover="background:#2b3550;color:#fff">לפרטי החבילה<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
             <div style="text-align:center;font-size:13px;color:#9a9fab;margin-top:10px">הבחירה של רוב הלקוחות שלנו</div>
           </div>
         </div>
@@ -290,59 +321,67 @@ footer>div{flex-direction:column;align-items:flex-start!important}
     </div>
   </section>
 
-  <section data-screen-label="Risks" style="position:relative;background:#151a27;color:#fff;overflow:hidden">
-    <div style="position:absolute;inset:0;background:radial-gradient(800px 420px at 50% 0%,rgba(198,162,118,.14),transparent 70%);pointer-events:none"></div>
-    <div style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(52px,6vw,80px) clamp(18px,4vw,40px)">
-      <div style="text-align:center;max-width:720px;margin:0 auto clamp(32px,4vw,48px)">
-        <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:20px"><span style="width:40px;height:1px;background:#c6a276"></span><span style="font-size:13px;letter-spacing:.26em;color:#e2c9a6;font-weight:600">למה עכשיו</span><span style="width:40px;height:1px;background:#c6a276"></span></div>
-        <h2 style="margin:0 0 14px;font-weight:300;letter-spacing:-.02em;font-size:clamp(30px,3.6vw,44px);line-height:1.15;text-wrap:balance">מה עלול לקרות <span style="color:#e2c9a6;font-weight:500">כשלא מסדירים מראש?</span></h2>
-        <p style="margin:0;font-size:17px;line-height:1.8;color:#b9b4ab">אלה משפטים שאנחנו שומעים שוב ושוב — תמיד ברגע שכבר מאוחר מדי לשנות.</p>
+  <section data-screen-label="Risks" style="position:relative;background:#1c2333;color:#fff;overflow:hidden">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(900px 400px at 50% 0%,rgba(198,162,118,.12),transparent 70%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(64px,7vw,100px) clamp(18px,3vw,32px) clamp(56px,6vw,84px)">
+      <div style="text-align:center;max-width:760px;margin:0 auto clamp(40px,5vw,64px)">
+        <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:18px"><span style="width:56px;height:1px;background:#c6a276"></span><span style="font-size:13px;letter-spacing:.3em;color:#e2c9a6;font-weight:500">למה עכשיו</span><span style="width:56px;height:1px;background:#c6a276"></span></div>
+        <h2 style="margin:0 0 14px;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.15;color:#fff;text-wrap:balance">מה עלול לקרות <span style="color:#e2c9a6;font-weight:600">כשלא מסדירים מראש?</span></h2>
+        <p style="margin:0;font-size:17px;font-weight:300;line-height:1.7;color:#d6d0c5">אלה סיפורים אמיתיים שהופכים לאתגרים — תנו שלא יקרה גם לכם.</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(18px,2.4vw,28px);align-items:start">
-      <article style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,#232b3f,#1a2032);border:1px solid rgba(226,201,166,.18);overflow:hidden;" style-hover="border-color:rgba(226,201,166,.5)">
-        <span aria-hidden="true" style="position:absolute;top:-30px;left:-6px;font-size:140px;font-weight:200;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(226,201,166,.16);direction:ltr;pointer-events:none">01</span>
-        <div style="position:relative;padding:26px 30px 24px;flex:1;display:flex;flex-direction:column">
-          <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
-            <span style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid rgba(226,201,166,.4);color:#e2c9a6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M12 3v18"></path><path d="M7 21h10"></path><path d="M5 7h14"></path><path d="M5 7l-3 7a3.5 3.5 0 0 0 6 0z"></path><path d="M19 7l-3 7a3.5 3.5 0 0 0 6 0z"></path></svg></span>
-            <span style="height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(226,201,166,.35))"></span>
+      <div id="rkGrid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr))">
+        <article class="rkCol" style="position:relative;display:flex;flex-direction:column;">
+        <div style="position:relative;padding:8px clamp(20px,2.6vw,40px) 0;min-height:230px;box-sizing:border-box">
+          <span aria-hidden="true" style="position:absolute;top:-18px;left:clamp(12px,2vw,28px);font-size:clamp(90px,9vw,128px);font-weight:200;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(226,201,166,.2);direction:ltr;pointer-events:none">03</span>
+          <div style="position:relative;display:flex;align-items:flex-start;gap:10px;padding-top:34px">
+            <span aria-hidden="true" style="font-family:Georgia,serif;font-size:58px;line-height:.8;color:#c6a276;margin-top:-4px">”</span>
+            <h3 style="margin:0 0 16px;font-size:clamp(22px,2.1vw,28px);font-weight:500;line-height:1.3;color:#fff"><span style="color:#e2c9a6">אבל אני אשתו,</span><br>אני לא יכולה?</h3>
           </div>
-          <span aria-hidden="true" style="font-size:64px;font-weight:400;font-family:Georgia,serif;line-height:.5;height:22px;color:#c6a276">”</span>
-          <h3 style="margin:0 0 10px;font-weight:400;letter-spacing:-.02em;font-size:clamp(22px,2vw,26px);line-height:1.3;color:#fff;text-wrap:balance">הייתי בטוח שהכול עובר אליי</h3>
-          <p style="margin:0;font-size:15px;font-weight:300;line-height:1.65;color:#b9b4ab;flex:1">בלי צוואה, החוק קובע את סדר היורשים — ולא תמיד כפי שהמשפחה הניחה.</p>
+          <p style="position:relative;margin:0;font-size:15.5px;font-weight:300;line-height:1.75;color:#b9b4ab;max-width:34ch;text-wrap:pretty">קרבה משפחתית לא מספיקה כדי לחתום, לנהל חשבון או לקבל החלטה רפואית.</p>
         </div>
-        <a href="will.html" style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 30px;border-top:1px solid rgba(226,201,166,.18);background:rgba(226,201,166,.06);color:#e2c9a6;font-size:15px" style-hover="background:rgba(226,201,166,.14);color:#fff"><span><span style="color:#9a9fab">הפתרון: </span><strong style="font-weight:600">צוואה</strong></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
+        <div style="position:relative;margin-top:auto;aspect-ratio:2.4/1;overflow:hidden">
+          <image-slot id="risk-img-03" shape="rect" src="assets/risk-03.png" placeholder="תמונה אווירתית"></image-slot>
+          <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,#1c2333 0%,rgba(28,35,51,0) 38%,rgba(28,35,51,0) 70%,#1c2333 100%);pointer-events:none"></div>
+        </div>
       </article>
-      <article style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,#232b3f,#1a2032);border:1px solid rgba(226,201,166,.18);overflow:hidden;margin-top:clamp(0px,2vw,28px);" style-hover="border-color:rgba(226,201,166,.5)">
-        <span aria-hidden="true" style="position:absolute;top:-30px;left:-6px;font-size:140px;font-weight:200;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(226,201,166,.16);direction:ltr;pointer-events:none">02</span>
-        <div style="position:relative;padding:26px 30px 24px;flex:1;display:flex;flex-direction:column">
-          <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
-            <span style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid rgba(226,201,166,.4);color:#e2c9a6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20a6.5 6.5 0 0 1 13 0"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14a6.5 6.5 0 0 1 3.5 6"></path></svg></span>
-            <span style="height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(226,201,166,.35))"></span>
+        <article class="rkCol" style="position:relative;display:flex;flex-direction:column;border-inline-start:1px solid rgba(226,201,166,.16);">
+        <div style="position:relative;padding:8px clamp(20px,2.6vw,40px) 0;min-height:230px;box-sizing:border-box">
+          <span aria-hidden="true" style="position:absolute;top:-18px;left:clamp(12px,2vw,28px);font-size:clamp(90px,9vw,128px);font-weight:200;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(226,201,166,.2);direction:ltr;pointer-events:none">02</span>
+          <div style="position:relative;display:flex;align-items:flex-start;gap:10px;padding-top:34px">
+            <span aria-hidden="true" style="font-family:Georgia,serif;font-size:58px;line-height:.8;color:#c6a276;margin-top:-4px">”</span>
+            <h3 style="margin:0 0 16px;font-size:clamp(22px,2.1vw,28px);font-weight:500;line-height:1.3;color:#fff"><span style="color:#e2c9a6">שלושה ילדים,</span><br>שלוש דעות</h3>
           </div>
-          <span aria-hidden="true" style="font-size:64px;font-weight:400;font-family:Georgia,serif;line-height:.5;height:22px;color:#c6a276">”</span>
-          <h3 style="margin:0 0 10px;font-weight:400;letter-spacing:-.02em;font-size:clamp(22px,2vw,26px);line-height:1.3;color:#fff;text-wrap:balance">שלושה ילדים, שלוש דעות</h3>
-          <p style="margin:0;font-size:15px;font-weight:300;line-height:1.65;color:#b9b4ab;flex:1">כשאין הנחיה ברורה, ההחלטות הרגישות ביותר מתקבלות דווקא ברגע הקשה ביותר.</p>
+          <p style="position:relative;margin:0;font-size:15.5px;font-weight:300;line-height:1.75;color:#b9b4ab;max-width:34ch;text-wrap:pretty">כשאין הנחיה ברורה, ההחלטות הרגשיות ביותר מתקבלות בדיוק ברגע הקשה ביותר.</p>
         </div>
-        <a href="bundle.html" style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 30px;border-top:1px solid rgba(226,201,166,.18);background:rgba(226,201,166,.06);color:#e2c9a6;font-size:15px" style-hover="background:rgba(226,201,166,.14);color:#fff"><span><span style="color:#9a9fab">הפתרון: </span><strong style="font-weight:600">צוואה + ייפוי כוח</strong></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
+        <div style="position:relative;margin-top:auto;aspect-ratio:2.4/1;overflow:hidden">
+          <image-slot id="risk-img-02" shape="rect" src="assets/risk-02.png" placeholder="תמונה אווירתית"></image-slot>
+          <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,#1c2333 0%,rgba(28,35,51,0) 38%,rgba(28,35,51,0) 70%,#1c2333 100%);pointer-events:none"></div>
+        </div>
       </article>
-      <article style="position:relative;display:flex;flex-direction:column;background:linear-gradient(180deg,#232b3f,#1a2032);border:1px solid rgba(226,201,166,.18);overflow:hidden;" style-hover="border-color:rgba(226,201,166,.5)">
-        <span aria-hidden="true" style="position:absolute;top:-30px;left:-6px;font-size:140px;font-weight:200;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(226,201,166,.16);direction:ltr;pointer-events:none">03</span>
-        <div style="position:relative;padding:26px 30px 24px;flex:1;display:flex;flex-direction:column">
-          <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
-            <span style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid rgba(226,201,166,.4);color:#e2c9a6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M12 20s-7-4.4-9-9a4.8 4.8 0 0 1 9-3 4.8 4.8 0 0 1 9 3c-2 4.6-9 9-9 9z"></path></svg></span>
-            <span style="height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(226,201,166,.35))"></span>
+        <article class="rkCol" style="position:relative;display:flex;flex-direction:column;border-inline-start:1px solid rgba(226,201,166,.16);">
+        <div style="position:relative;padding:8px clamp(20px,2.6vw,40px) 0;min-height:230px;box-sizing:border-box">
+          <span aria-hidden="true" style="position:absolute;top:-18px;left:clamp(12px,2vw,28px);font-size:clamp(90px,9vw,128px);font-weight:200;line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(226,201,166,.2);direction:ltr;pointer-events:none">01</span>
+          <div style="position:relative;display:flex;align-items:flex-start;gap:10px;padding-top:34px">
+            <span aria-hidden="true" style="font-family:Georgia,serif;font-size:58px;line-height:.8;color:#c6a276;margin-top:-4px">”</span>
+            <h3 style="margin:0 0 16px;font-size:clamp(22px,2.1vw,28px);font-weight:500;line-height:1.3;color:#fff"><span style="color:#e2c9a6">הייתי בטוח</span><br>שהכול עובר אליי</h3>
           </div>
-          <span aria-hidden="true" style="font-size:64px;font-weight:400;font-family:Georgia,serif;line-height:.5;height:22px;color:#c6a276">”</span>
-          <h3 style="margin:0 0 10px;font-weight:400;letter-spacing:-.02em;font-size:clamp(22px,2vw,26px);line-height:1.3;color:#fff;text-wrap:balance">אבל אני אשתו, אני לא יכולה?</h3>
-          <p style="margin:0;font-size:15px;font-weight:300;line-height:1.65;color:#b9b4ab;flex:1">קרבה משפחתית לבדה לא מספיקה כדי לחתום, לנהל חשבון או לקבל החלטה רפואית.</p>
+          <p style="position:relative;margin:0;font-size:15.5px;font-weight:300;line-height:1.75;color:#b9b4ab;max-width:34ch;text-wrap:pretty">בלי צוואה, החוק קובע את סדר היורשים — ולא תמיד לפי מה שחשבנו הנכון.</p>
         </div>
-        <a href="power-of-attorney.html" style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 30px;border-top:1px solid rgba(226,201,166,.18);background:rgba(226,201,166,.06);color:#e2c9a6;font-size:15px" style-hover="background:rgba(226,201,166,.14);color:#fff"><span><span style="color:#9a9fab">הפתרון: </span><strong style="font-weight:600">ייפוי כוח מתמשך</strong></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
+        <div style="position:relative;margin-top:auto;aspect-ratio:2.4/1;overflow:hidden">
+          <image-slot id="risk-img-01" shape="rect" src="assets/risk-01.png" placeholder="תמונה אווירתית"></image-slot>
+          <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,#1c2333 0%,rgba(28,35,51,0) 38%,rgba(28,35,51,0) 70%,#1c2333 100%);pointer-events:none"></div>
+        </div>
       </article>
+      </div>
+      <div style="text-align:center;margin-top:clamp(28px,3vw,44px)">
+        <p style="margin:0 0 10px;font-size:clamp(20px,2.2vw,28px);font-weight:300;line-height:1.4;color:#fff;text-wrap:balance">את הדברים <strong style="font-weight:600">החשובים באמת</strong> לא משאירים <strong style="font-weight:600;color:#e2c9a6">ל"ברור ש..."</strong>.</p>
+        <p style="margin:0 0 26px;font-size:16px;font-weight:300;color:#b9b4ab">מסדירים מראש, בשביל השקט של היום ומחר.</p>
+        <span aria-hidden="true" style="display:block;width:120px;height:1px;margin:0 auto;background:#c6a276"></span>
       </div>
     </div>
   </section>
 
-  <section data-screen-label="Process" style="position:relative;overflow:hidden;isolation:isolate">
+  <section data-screen-label="Process" style="border-top:1px solid #efe7da;position:relative;overflow:hidden;isolation:isolate">
     <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(168,132,90,.22) 1px,transparent 1.2px);background-size:22px 22px;-webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 55%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 60% 55% at 50% 55%,#000 20%,transparent 75%)"></div>
     <div aria-hidden="true" style="position:absolute;top:58%;left:50%;width:0;height:0;pointer-events:none"><div style="position:absolute;top:50%;left:50%;width:1400px;height:1400px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(198,162,118,0.14)"></div><div style="position:absolute;top:50%;left:50%;width:1100px;height:1100px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(198,162,118,0.18)"></div><div style="position:absolute;top:50%;left:50%;width:820px;height:820px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(198,162,118,0.22)"></div><div style="position:absolute;top:50%;left:50%;width:560px;height:560px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(198,162,118,0.26)"></div></div>
     <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 40% 30% at 50% 58%,rgba(247,243,237,.9),transparent 70%)"></div>
@@ -413,40 +452,40 @@ footer>div{flex-direction:column;align-items:flex-start!important}
         </ol>
       </div>
       <div style="display:flex;justify-content:center;margin-top:clamp(44px,5vw,64px)">
-        <a href="questionnaire.html" style="display:inline-flex;align-items:center;gap:12px;background:#1c2333;color:#fff;padding:18px 36px;font-size:16px;font-weight:500" style-hover="background:#262e41;color:#e2c9a6">מתחילים בצעד הראשון<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
+        <a href="questionnaire.html" style="display:inline-flex;align-items:center;gap:12px;background:#1c2333;color:#fff;padding:18px 36px;font-size:16px;font-weight:500;border-radius:999px" style-hover="background:#262e41;color:#e2c9a6">מתחילים בצעד הראשון<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
       </div>
     </div>
   </section>
 
-  <section data-screen-label="About" style="position:relative;background:#1c2333;color:#fff;overflow:hidden">
+  <section data-screen-label="About" style="border-top:1px solid #efe7da;position:relative;background:#fbf8f3;color:#1c2333;overflow:hidden">
     <div style="position:absolute;inset:0;background:radial-gradient(700px 500px at 85% 50%,rgba(198,162,118,.10),transparent 70%);pointer-events:none"></div>
     <div style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(18px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(44px,6vw,96px);align-items:center">
       <div>
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px"><span style="width:40px;height:1px;background:#c6a276"></span><span style="font-size:13px;letter-spacing:.26em;color:#e2c9a6;font-weight:600">אתם כבר מכירים אותנו</span><span style="width:40px;height:1px;background:#c6a276"></span></div>
-        <h2 style="margin:0 0 22px;font-weight:300;letter-spacing:-.02em;font-size:clamp(34px,4.6vw,56px);line-height:1.1;text-wrap:balance">שישה עשורים של <span style="color:#e2c9a6;font-weight:600">אמון משפחות</span></h2>
-        <p style="margin:0 0 30px;font-size:18px;font-weight:300;line-height:1.75;color:#d6d0c5;max-width:48ch;text-wrap:pretty">מרקמן טומשין ושות' הוקם בשנות ה-60 והוא כיום <strong style="font-weight:600;color:#fff">מהמשרדים הגדולים בישראל</strong> בייצוג לקוחות פרטיים. את אותה מקצועיות ואותו יחס אישי אנחנו מביאים גם לתכנון העתיד שלכם.</p>
-        <ul style="list-style:none;margin:0 0 36px;padding:0;border-bottom:1px solid rgba(226,201,166,.16)">
-          <li class="mc" style="display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:center;padding:20px 0;border-top:1px solid rgba(226,201,166,.16)">
-            <span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:rgba(226,201,166,.08);border:1px solid rgba(226,201,166,.35);color:#e2c9a6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></span>
-            <span style="display:flex;flex-direction:column;gap:3px"><strong style="font-size:18px;font-weight:600;color:#fff">עו"ד אישי לאורך כל הדרך</strong><span style="font-size:15px;font-weight:300;color:#b9b4ab;line-height:1.55">אותו איש קשר מהשאלון ועד החתימה.</span></span>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px"><span style="width:40px;height:1px;background:#c6a276"></span><span style="font-size:13px;letter-spacing:.26em;color:#a8845a;font-weight:600">אתם כבר מכירים אותנו</span><span style="width:40px;height:1px;background:#c6a276"></span></div>
+        <h2 style="margin:0 0 22px;font-weight:300;letter-spacing:-.02em;font-size:clamp(34px,4.6vw,56px);line-height:1.1;text-wrap:balance">שישה עשורים של <span style="color:#a8845a;font-weight:600">אמון משפחות</span></h2>
+        <p style="margin:0 0 30px;font-size:18px;font-weight:300;line-height:1.75;color:#4a5060;max-width:48ch;text-wrap:pretty">מרקמן טומשין ושות' הוקם בשנות ה-60 והוא כיום <strong style="font-weight:600;color:#1c2333">מהמשרדים הגדולים בישראל</strong> בייצוג לקוחות פרטיים. את אותה מקצועיות ואותו יחס אישי אנחנו מביאים גם לתכנון העתיד שלכם.</p>
+        <ul style="list-style:none;margin:0 0 36px;padding:0;border-bottom:1px solid rgba(168,132,90,.16)">
+          <li class="mc" style="display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:center;padding:20px 0;border-top:1px solid rgba(168,132,90,.16)">
+            <span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:rgba(168,132,90,.08);border:1px solid rgba(168,132,90,.35);color:#a8845a"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:3px"><strong style="font-size:18px;font-weight:600;color:#1c2333">עו"ד אישי לאורך כל הדרך</strong><span style="font-size:15px;font-weight:300;color:#6b7080;line-height:1.55">אותו איש קשר מהשאלון ועד החתימה.</span></span>
           </li>
-          <li class="mc" style="display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:center;padding:20px 0;border-top:1px solid rgba(226,201,166,.16)">
-            <span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:rgba(226,201,166,.08);border:1px solid rgba(226,201,166,.35);color:#e2c9a6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
-            <span style="display:flex;flex-direction:column;gap:3px"><strong style="font-size:18px;font-weight:600;color:#fff">12 סניפים ברחבי הארץ</strong><span style="font-size:15px;font-weight:300;color:#b9b4ab;line-height:1.55">פגישה קרוב לבית, מכרמיאל ועד אילת.</span></span>
+          <li class="mc" style="display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:center;padding:20px 0;border-top:1px solid rgba(168,132,90,.16)">
+            <span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:rgba(168,132,90,.08);border:1px solid rgba(168,132,90,.35);color:#a8845a"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>
+            <span style="display:flex;flex-direction:column;gap:3px"><strong style="font-size:18px;font-weight:600;color:#1c2333">12 סניפים ברחבי הארץ</strong><span style="font-size:15px;font-weight:300;color:#6b7080;line-height:1.55">פגישה קרוב לבית, מכרמיאל ועד אילת.</span></span>
           </li>
-          <li class="mc" style="display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:center;padding:20px 0;border-top:1px solid rgba(226,201,166,.16)">
-            <span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:rgba(226,201,166,.08);border:1px solid rgba(226,201,166,.35);color:#e2c9a6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><rect x="4" y="11" width="16" height="10" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span>
-            <span style="display:flex;flex-direction:column;gap:3px"><strong style="font-size:18px;font-weight:600;color:#fff">סודיות ושמירת מסמכים</strong><span style="font-size:15px;font-weight:300;color:#b9b4ab;line-height:1.55">המסמכים נשמרים אצלנו, מאובטחים וזמינים.</span></span>
+          <li class="mc" style="display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:center;padding:20px 0;border-top:1px solid rgba(168,132,90,.16)">
+            <span style="display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:rgba(168,132,90,.08);border:1px solid rgba(168,132,90,.35);color:#a8845a"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><rect x="4" y="11" width="16" height="10" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg></span>
+            <span style="display:flex;flex-direction:column;gap:3px"><strong style="font-size:18px;font-weight:600;color:#1c2333">סודיות ושמירת מסמכים</strong><span style="font-size:15px;font-weight:300;color:#6b7080;line-height:1.55">המסמכים נשמרים אצלנו, מאובטחים וזמינים.</span></span>
           </li>
         </ul>
         <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
-          <a href="contact.html" style="display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#e2c9a6,#b8915f);color:#1c2333;padding:16px 30px;font-size:15px;font-weight:600" style-hover="filter:brightness(1.08);color:#1c2333">לתיאום פגישה<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
-          <a href="contact.html" style="display:inline-flex;align-items:center;gap:10px;color:#e2c9a6;font-size:15px;font-weight:500;padding:16px 8px" style-hover="color:#fff">עוד על המשרד</a>
+          <a href="contact.html" style="display:inline-flex;align-items:center;gap:12px;background:#1c2333;color:#fff;padding:16px 30px;font-size:15px;font-weight:600;border-radius:999px" style-hover="background:#2b3550;color:#fff">לתיאום פגישה ללא עלות<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
+          <a href="contact.html" style="display:inline-flex;align-items:center;gap:10px;color:#a8845a;font-size:15px;font-weight:500;padding:16px 8px" style-hover="color:#1c2333">עוד על המשרד</a>
         </div>
       </div>
       <div style="position:relative;padding:0 22px 22px 0;width:100%;max-width:502px;box-sizing:border-box;margin-inline:auto">
         <div style="position:absolute;top:22px;left:22px;right:0;bottom:0;border:1px solid rgba(198,162,118,.45);pointer-events:none"></div>
-        <div style="position:relative;aspect-ratio:4/5;background:#262e41;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)">
+        <div style="position:relative;aspect-ratio:4/5;background:#ece5da;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)">
           <image-slot id="about-team" shape="rect" placeholder="תמונת השותפים / הצוות"></image-slot>
         </div>
         <div id="aboutBadge" style="position:absolute;bottom:56px;left:-18px;background:#fff;padding:10px;border-radius:10px;box-shadow:0 24px 50px -20px rgba(0,0,0,.55);pointer-events:none"><img src="assets/duns100-2026.png" alt="Duns 100 · 2026 · החברות המובילות מבית dun &amp; bradstreet" style="display:block;height:92px;width:auto;border-radius:6px"></div>
@@ -454,7 +493,7 @@ footer>div{flex-direction:column;align-items:flex-start!important}
     </div>
   </section>
 
-  <section data-screen-label="Testimonials" style="position:relative;background:#fff;overflow:hidden;isolation:isolate">
+  <section data-screen-label="Testimonials" style="border-top:1px solid #efe7da;position:relative;background:#fff;overflow:hidden;isolation:isolate">
     <div aria-hidden="true" style="position:absolute;top:50%;left:50%;width:900px;height:900px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(198,162,118,.18);pointer-events:none"></div>
     <div aria-hidden="true" style="position:absolute;top:50%;left:50%;width:640px;height:640px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(198,162,118,.22);pointer-events:none"></div>
     <div style="position:relative;max-width:980px;margin:0 auto;padding:clamp(60px,7vw,100px) clamp(18px,4vw,40px);text-align:center">
@@ -475,7 +514,7 @@ footer>div{flex-direction:column;align-items:flex-start!important}
     </div>
   </section>
 
-  <section data-screen-label="FAQ" style="position:relative;background:#fff;overflow:hidden;isolation:isolate">
+  <section data-screen-label="FAQ" style="border-top:1px solid #efe7da;position:relative;background:#fff;overflow:hidden;isolation:isolate">
     <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,#efe7da 0,#fff 340px)"></div>
     <div aria-hidden="true" style="position:absolute;top:-60px;right:50%;transform:translateX(50%);font-family:Georgia,serif;font-size:clamp(320px,40vw,560px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(168,132,90,.18);pointer-events:none;user-select:none">?</div>
     <div style="position:relative;max-width:1240px;margin:0 auto;padding:clamp(72px,9vw,120px) clamp(18px,4vw,40px)">
@@ -550,7 +589,7 @@ footer>div{flex-direction:column;align-items:flex-start!important}
             <li style="display:flex;align-items:center;gap:12px;font-size:16px;font-weight:300;color:#d6d0c5"><span style="display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:rgba(226,201,166,.14);color:#e2c9a6"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;stroke-width:2"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>ליווי בעברית, ערבית, אנגלית ורוסית</li>
           </ul>
           <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
-            <a href="questionnaire.html" style="display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#e2c9a6,#b8915f);color:#1c2333;padding:19px 34px;font-size:17px;font-weight:700" style-hover="filter:brightness(1.08);color:#1c2333">לשאלון ההתאמה<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
+            <a href="questionnaire.html" style="display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#e2c9a6,#b8915f);color:#1c2333;padding:19px 34px;font-size:17px;font-weight:700;border-radius:999px" style-hover="filter:brightness(1.08);color:#1c2333">לשאלון ההתאמה<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M19 12H5"></path><path d="M11 6l-6 6 6 6"></path></svg></a>
             <a href="tel:*8332" style="display:inline-flex;align-items:center;gap:12px;color:#fff;padding:19px 10px;font-size:17px;font-weight:500" style-hover="color:#e2c9a6"><span style="display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:1px solid rgba(226,201,166,.45);color:#e2c9a6"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></span>או חייגו <span style="direction:ltr;font-weight:700;color:#e2c9a6">*8332</span></a>
           </div>
         </div>
@@ -600,6 +639,16 @@ const TESTI = [
 ];
 class Component extends DCLogic {
   state = { t: 0 };
+  componentDidMount() {
+    const run = el => { if (el.dataset.done) return; el.dataset.done = 1; const to = +el.dataset.count, t0 = performance.now(), d = 1800;
+      const f = now => { const k = Math.min(1, (now - t0) / d), e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(to * e); if (k < 1) requestAnimationFrame(f); };
+      el.textContent = 0; requestAnimationFrame(f); };
+    const els = document.querySelectorAll('[data-count]');
+    if (!('IntersectionObserver' in window)) { els.forEach(run); return; }
+    this._io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(e.target); this._io.unobserve(e.target); } }), { threshold: .4 });
+    els.forEach(el => this._io.observe(el));
+  }
+  componentWillUnmount() { this._io && this._io.disconnect(); }
   renderVals() {
     const v = this.props.heroLayout ?? "split";
     const i = this.state.t, N = TESTI.length;
